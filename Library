@@ -1,5 +1,5 @@
 
-local GodSploit = Instance.new("ScreenGui")
+local CQCheats = Instance.new("ScreenGui")
 local ContainerFrame = Instance.new("Frame")
 local ContainerFrameUIListLayout = Instance.new("UIListLayout")
 local NotificationContainer = Instance.new("Frame")
@@ -13,13 +13,13 @@ local Blur = Instance.new("BlurEffect")
 local DefaultLayoutOrder = 0
 
 task.spawn(function()
-	GodSploit.Name = "GodSploit"
-	GodSploit.Parent = LocalPlayer:WaitForChild("PlayerGui")
-	GodSploit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	GodSploit.ResetOnSpawn = false
+	CQCheats.Name = math.random(100000, 99999999)
+	CQCheats.Parent = LocalPlayer:WaitForChild("PlayerGui")
+	CQCheats.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	CQCheats.ResetOnSpawn = false
 
 	ContainerFrame.Name = "ContainerFrame"
-	ContainerFrame.Parent = GodSploit
+	ContainerFrame.Parent = CQCheats
 	ContainerFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 	ContainerFrame.BackgroundTransparency = 1.000
 	ContainerFrame.BorderColor3 = Color3.new(0, 0, 0)
@@ -35,7 +35,7 @@ task.spawn(function()
 	ContainerFrameUIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
 	NotificationContainer.Name = "NotificationContainer"
-	NotificationContainer.Parent = GodSploit
+	NotificationContainer.Parent = CQCheats
 	NotificationContainer.BackgroundColor3 = Color3.new(1, 1, 1)
 	NotificationContainer.BackgroundTransparency = 1.000
 	NotificationContainer.BorderColor3 = Color3.new(0, 0, 0)
@@ -55,7 +55,7 @@ task.spawn(function()
 	UIStroke.Color = Color3.new(1, 0.666667, 0)
 
 	Open.Name = "Open"
-	Open.Parent = GodSploit
+	Open.Parent = CQCheats
 	Open.BackgroundColor3 = Color3.new(1, 1, 1)
 	Open.BorderColor3 = Color3.new(0, 0, 0)
 	Open.BorderSizePixel = 0
@@ -134,7 +134,7 @@ local function CreateTab(Name)
 	Title.Size = UDim2.new(1, 0, 0.743, 0)
 	Title.Font = Enum.Font.GothamBold
 	Title.Text = Name
-	Title.TextColor3 = Color3.new(255, 255, 255)
+	Title.TextColor3 = Color3.new(0, 255, 255)
 	Title.TextScaled = true
 	Title.TextSize = 20
 	Title.TextWrapped = true
@@ -164,7 +164,7 @@ local function CreateToggle(Parent, Name, DefaultValue, CallBack)
 		task.spawn(function()
 			if Value == true then
 				CallBackValue = true
-				UIGradient.Color =  ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.new(1, 0.666667, 0)), ColorSequenceKeypoint.new(1.00, Color3.new(1, 0.803922, 0.411765))}
+				UIGradient.Color =  ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.new(1, 0.666667, 1)), ColorSequenceKeypoint.new(1.00, Color3.new(1, 0.803922, 0.411765))}
 
 				CallBack(true)
 			end
@@ -254,7 +254,7 @@ local function CreateKeyBind(Parent, DefaultValue, LayoutOrder, CallBack)
 	KeyBind.AutoButtonColor = false
 	KeyBind.Font = Enum.Font.GothamBold
 	KeyBind.Text = "KeyBind: " .. DefaultValue
-	KeyBind.TextColor3 = Color3.new(1, 1, 1)
+	KeyBind.TextColor3 = Color3.new(1, 50, 255)
 	KeyBind.TextScaled = true
 	KeyBind.TextSize = 11
 	KeyBind.LayoutOrder = LayoutOrder
@@ -339,7 +339,7 @@ local function CreateMiniToggle(Parent, Name, DefaultValue, LayoutOrder, CallBac
 	MiniToggle.AutoButtonColor = false
 	MiniToggle.Font = Enum.Font.GothamBold
 	MiniToggle.Text = Name
-	MiniToggle.TextColor3 = Color3.new(1, 1, 1)
+	MiniToggle.TextColor3 = Color3.new(1, 50, 250)
 	MiniToggle.TextSize = 11
 	MiniToggle.LayoutOrder = LayoutOrder
 
@@ -629,7 +629,7 @@ local function CreateFlyHud()
 		repeat
 			task.wait(0.001)
 
-			UIStroke.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+			UIStroke.Color = Color3.fromRGB(0, 50, 255)
 		until not game
 	end)
 
