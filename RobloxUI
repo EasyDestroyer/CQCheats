@@ -1,1 +1,23 @@
 
+local RobloxUI = {}
+
+local function RobloxUI.displayErrorPopup(name, text, func)
+	local oldidentity = getidentity()
+	setidentity(8)
+	local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+	local prompt = ErrorPrompt.new("Default")
+	prompt._hideErrorCode = true
+	local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+	prompt:setErrorTitle(name)
+	prompt:updateButtons({{
+		Text = "OK",
+		Callback = function() 
+			prompt:_close() 
+			if func then func() end
+		end,
+		Primary = true
+	}}, 'Default')
+	prompt:setParent(gui)
+	prompt:_open(text)
+	setidentity(oldidentity)
+end
